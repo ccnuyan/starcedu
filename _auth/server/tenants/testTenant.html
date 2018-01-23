@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">
+        <img src="http://__HOST__/static/images/logo.png"/>
+    </a>  
+    <div>
+        State Code:
+    </div>
+    <div>
+        __STATE_CODE__
+    </div>
+    <form action="">
+        <a href="http://__HOST__/user/authorize?tenant=oauth_test_tenant1&state=__STATE_CODE__">Luanch</a>
+    </form>
+    <div>
+        Authorization Code:
+    </div>
+    <div>
+        __AUTHORIZATION_CODE__
+    </div>
+    <div>
+        Authorized User:
+    </div>
+    <div>
+        __AUTHORIZED_USER__
+    </div>
+</body>
+</html>

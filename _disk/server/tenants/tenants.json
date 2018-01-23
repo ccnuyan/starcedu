@@ -1,0 +1,42 @@
+{
+    "notebook_web": {
+        "title":"笔记APP",
+        "description":"笔记APP的描述",
+        "local":true,
+        "pass": "notebook_web_pass"
+    },
+    "notebook_mobile_android": {
+        "title":"笔记APP安卓版",
+        "description":"笔记APP安卓版的描述",
+        "local":true,
+        "pass": "notebook_mobile_android_pass"
+    },
+    "local_test_tenant": {
+        "title":"local_test_tenant的标题",
+        "description":"local_test_tenant的描述",
+        "local":true,
+        "pass": "local_test_tenant_pass"
+    },
+    "oauth_test_tenant1": {
+        "title":"测试APP",
+        "description":"测试APP的描述： 只用于测试，在生产环境不可用, 应部署在本机的28000端口",
+        "local":false,
+        "auth": ["oauth"],
+        "fields": ["disk"],
+        "oauth_pass": "test_tenant1_pass",
+        "oauth_key": "test_tenant1_key",
+        "redirect_url": "http://localhost:28000/oauth/callback",
+        "home_url": "http://localhost:28000"
+    },
+    "oauth_test_tenant2": {
+        "title":"测试APP",
+        "description":"测试APP的描述： 只用于测试，在生产环境不可用, 应部署在本机的28000端口",
+        "local":false,
+        "auth": ["oauth"],
+        "fields": [],
+        "oauth_pass": "test_tenant2_pass",
+        "oauth_key": "test_tenant2_key",
+        "redirect_url": "http://localhost:28000/oauth/callback",
+        "home_url": "http://localhost:28000"
+    }
+}
