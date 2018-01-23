@@ -1,5 +1,8 @@
 # Project
 build/
+!build/*.md
+!*/database/build/*.md
+!*/src/build/*.md
 
 ###############################################
 # Created by https://www.gitignore.io/api/git,node,linux,macos,windows,visualstudiocode
