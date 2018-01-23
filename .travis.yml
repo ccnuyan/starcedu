@@ -1,7 +1,7 @@
 branches:
   only:
-  # - develop
   - develop
+  - master
   
 sudo: required
 services:
@@ -13,12 +13,15 @@ node_js:
 install:
 - npm install -g mocha babel-cli webpack
 - npm install
-- npm run db-build
-- npm run db-install
+- babel-node db build auth
+- babel-node db install auth
+- babel-node db build disk
+- babel-node db install disk
+
 before_script:
-- webpack
+# - webpack
 script: 
-- npm test
+- npm run db-test
 # - npm run wp-build
 
 after_success:
