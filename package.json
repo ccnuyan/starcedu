@@ -11,7 +11,7 @@
     "wp-build": "cross-env NODE_ENV=production && webpack --config=webpack.build-config.js",
     "# comment - test #": "test scripts:",
     "test": "mocha --opts ./mocha.opts ./_auth/**/*.spec.js ./_disk/**/*.spec.js",
-    "test-ci": "mocha --opts ./mocha.opts ./_auth/**/*.spec.js ./_disk/**/*.spec.js",
+    "test-ci": "mocha --opts ./mocha.ci.opts ./_auth/**/*.spec.js ./_disk/**/*.spec.js",
     "start-tenant": "babel-node ./server/tenants/testTenant.js",
     "precommit": "lint-staged",
     "# comment - dev #": "dev scripts:",
