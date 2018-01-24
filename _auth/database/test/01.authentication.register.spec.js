@@ -1,5 +1,5 @@
-import '../../../db/testHelpers';
-
+import serverConfig from '../../../serverConfig';
+import '../../../utils/testHelpers';
 import pgPool from '../../../db/connector';
 
 const params = {

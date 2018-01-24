@@ -3,14 +3,14 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 
-
 const rules = require('./webpack/commonRules.js');
 
 const config = {
   entry: {
-    app: ['babel-polyfill', './src/frontend/app.js'],
-    app_test: ['babel-polyfill', './src/frontend/app_test.js'],
-    app_embed: ['babel-polyfill', './src/frontend/app_embed.js'],
+    auth: ['babel-polyfill', './_auth/src/frontend/app.js'],
+    disk: ['babel-polyfill', './_disk/src/frontend/app.js'],
+    // app_test: ['babel-polyfill', './src/frontend/app_test.js'],
+    // app_embed: ['babel-polyfill', './src/frontend/app_embed.js'],
   },
   target: 'web',
   output: {

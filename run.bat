@@ -1,0 +1,1 @@
+babel-node tasks build auth && node ./_auth/dist/server.js

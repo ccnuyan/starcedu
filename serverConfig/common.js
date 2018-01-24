@@ -11,7 +11,6 @@ export default {
   port: 18000,
   domain: 'www.syncollege.com',
   serviceBase: '/',
-  log: 'tiny',
   maxDelay: 1000,
   session: {
     secret: '12345678',

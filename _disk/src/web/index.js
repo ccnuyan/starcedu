@@ -1,14 +1,7 @@
-import indexHtml from './indexFabricator';
-import appTestHtml from './appTestFabricator';
+import indexFabricator from '../../../utils/indexFabricator';
 import fileServices from '../api/services/fileServices';
 
 export default (app) => {
-  if (serverConfig.mode === 'development') {
-    app.get('/test', (req, res) => {
-      res.send(appTestHtml);
-    });
-  }
-
   app.get('/', async (req, res) => {
     if (!req.user || !req.user.id) {
       return res.redirect(302, '/user/signin?cb=/apps/disk/');
@@ -34,6 +27,6 @@ export default (app) => {
       },
     };
 
-    res.send(indexHtml.replace('_starc_server_state_', JSON.stringify(preloadedState, null, 2)));
+    res.send(indexFabricator('disk').replace('_starc_server_state_', JSON.stringify(preloadedState, null, 2)));
   });
 };

@@ -1,6 +1,6 @@
-import './testHelpers';
-import pgPool from '../../../database/connector';
-import app from '../../../server';
+import '../../../../utils/testHelpers';
+import pgPool from '../../../../db/connector';
+import app from '../../../';
 
 describe('local user signin business', function () { // eslint-disable-line
   this.timeout(10000);

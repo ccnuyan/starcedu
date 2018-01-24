@@ -1,6 +1,7 @@
-import './testHelpers';
-import pgPool from '../../../database/connector';
-import app from '../../../server';
+import '../../../../utils/testHelpers';
+import serverConfig from '../../../../serverConfig';
+import pgPool from '../../../../db/connector';
+import app from '../../../';
 
 describe('tenant user signup business', function () { // eslint-disable-line
   this.timeout(10000);
@@ -22,7 +23,7 @@ describe('tenant user signup business', function () { // eslint-disable-line
   it('can signup', async () => {
     await chai.request(app)
       .post('/api/tenant/user/signup')
-      .set(serverConfig.auth.tenantHeader, `basic ${this.basicAuth}`)
+      .set(serverConfig.tenantHeader, `basic ${this.basicAuth}`)
       .send(this.user)
       .then((res) => {
         res.should.have.status(200);

@@ -1,19 +1,19 @@
 import jwt from 'jsonwebtoken';
-import config from '../../config';
+import serverConfig from '../../../serverConfig';
 
 export const sign = (issuer, payload) => {
   const user = _.pick(payload, ['id', 'username', 'to']);
   return jwt.sign(
     user,
-    config.auth.jwt.secret,
+    serverConfig.jwt.secret,
     {
-      expiresIn: config.auth.jwt.expiresIn,
+      expiresIn: serverConfig.jwt.expiresIn,
       issuer,
     },
   );
 };
 
 export const verify = (token) => {
-  return jwt.verify(token, config.auth.jwt.secret);
+  return jwt.verify(token, serverConfig.jwt.secret);
 };
 

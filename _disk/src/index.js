@@ -1,12 +1,12 @@
-import api from '../src/api/';
-import web from '../src/web/';
+import api from './api/';
+import web from './web/';
 
 import session from './auth/sessionMiddleware';
 import userAUth from './auth/byPassUserAuth';
 
 const session2Req = (req, res, next) => {
   Object.keys(req.session).forEach((k) => {
-    if (k !== 'cookie')req[k] = req.session[k];
+    if (k !== 'cookie') req[k] = req.session[k];
   });
   next();
 };
@@ -34,10 +34,8 @@ export default {
     });
   },
   web: (app) => {
-    if (serverConfig.mode !== 'test') {
-      app.use('/*', session, session2Req);
-      web(app);
-    }
+    app.use('/*', session, session2Req);
+    web(app);
   },
 };
 

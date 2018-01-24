@@ -1,5 +1,6 @@
 import { fromJS, Map } from 'immutable';
 import uuid from 'uuid';
+import _ from 'lodash';
 import { syncTypes, asyncTypes } from '../actionTypes'; //eslint-disable-line
 import actionTypes from '../actionTypes'; //eslint-disable-line
 

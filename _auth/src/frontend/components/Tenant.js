@@ -48,6 +48,7 @@ class Tenant extends Component {
 }
 
 const mapStateToProps = state => ({
+  state,
 });
 
 const mapDispatchToProps = (dispatch) => {

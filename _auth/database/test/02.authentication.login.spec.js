@@ -1,6 +1,6 @@
-import '../../../db/testHelpers';
-
+import serverConfig from '../../../serverConfig';
 import pgPool from '../../../db/connector';
+import '../../../utils/testHelpers';
 
 let regResult = null;
 const params = {

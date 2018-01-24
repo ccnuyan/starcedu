@@ -1,6 +1,6 @@
 export default {
   development: {
-    dbname: 'starcedu_auth',
+    dbname: 'starcedu_auth', port: 8000,
   },
   production: {
     dbname: 'starcedu_auth',

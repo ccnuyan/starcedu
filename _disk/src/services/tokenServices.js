@@ -1,20 +1,20 @@
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
-import config from '../../config';
+import serverConfig from '../../../serverConfig';
 
 export const sign = (issuer, payload) => {
   const user = _.pick(payload, [' id', 'username', 'gender', 'nickname']);
   return jwt.sign(
     user,
-    config.auth.jwt.secret,
+    serverConfig.auth.jwt.secret,
     {
-      expiresIn: config.auth.jwt.expiresIn,
+      expiresIn: serverConfig.auth.jwt.expiresIn,
       issuer,
     },
   );
 };
 
 export const verify = (token) => {
-  return jwt.verify(token, config.auth.jwt.secret);
+  return jwt.verify(token, serverConfig.auth.jwt.secret);
 };
 

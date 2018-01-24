@@ -1,40 +1,35 @@
 import express from 'express';
+import path from 'path';
 import bodyParser from 'body-parser';
 import compression from 'compression';
-import path from 'path';
 import delay from 'express-delay';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
+import chalk from 'chalk';
 
-import '../config';
-import '../globals';
-import './tenants';
+import serverConfig from '../serverConfig';
+import crossDomain from '../utils/middlewares/crossDomain';
+import ajaxDetector from '../utils/middlewares/ajaxDetector';
+import routes from './src';
 
-import crossDomain from './middleware/crossDomain';
-import utilities from './middleware/utilities';
-import routes from '../src';
+import '../serverConfig/tenants';
 
 const app = express();
 
 // serve the app
-const PORT = process.env.PORT || serverConfig.port;
-global.report();
+const PORT = process.env.PORT || serverConfig.disk_port;
 
 // express middleware
 app.use(compression());
 
-app.get('/favicon.ico', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/favicon.ico'));
-});
-// static resources
 app.use('/static/', express.static(path.join(__dirname, '../build/')));
 app.use('/static/', express.static(path.join(__dirname, '../public/')));
 
 if (serverConfig.log) {
   app.use(morgan(serverConfig.log));
 }
-if (serverConfig.delay) {
-  app.use(delay(0, serverConfig.delay));
+if (serverConfig.maxDelay) {
+  app.use(delay(0, serverConfig.maxDelay));
 }
 
 app.use(bodyParser.json());
@@ -42,7 +37,7 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 
-app.use(utilities.ajaxDetector);
+app.use(ajaxDetector);
 app.use(crossDomain);
 
 app.use(cookieParser());
@@ -51,13 +46,13 @@ app.use(cookieParser());
 routes.api(app);
 routes.web(app);
 
-// run server
 const server = app.listen(PORT, (err) => {
   if (err) {
-    printError(err, __filename);
+    console.log(chalk.red(err)); // eslint-disable-line
   } else {
-    printMessage(`${serverConfig.title} is listening on port ${PORT}`, __filename);
+    console.log(chalk.blue(`${serverConfig.title} is listening on port ${PORT}`)); // eslint-disable-line
   }
 });
 
 export default server;
+

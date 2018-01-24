@@ -1,5 +1,6 @@
 import postgres from 'pg';
 import chalk from 'chalk';
+import serverConfig from '../serverConfig';
 
 export const pg = new postgres.Pool(serverConfig.pg);
 

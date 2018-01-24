@@ -1,6 +1,6 @@
 export default {
   development: {
-    dbname: 'starcedu_disk',
+    dbname: 'starcedu_disk', port: 18000,
   },
   production: {
     dbname: 'starcedu_disk',

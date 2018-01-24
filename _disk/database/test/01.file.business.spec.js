@@ -1,6 +1,5 @@
-import { expect } from 'chai';
-
-import '../../../db/testHelpers';
+import '../../../utils/testHelpers';
+import serverConfig from '../../../serverConfig';
 import pgPool from '../../../db/connector';
 
 const userid = '12345678';

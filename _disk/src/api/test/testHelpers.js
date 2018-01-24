@@ -1,10 +1,8 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 
-import '../../../config';
-
-import pgPool from '../../../database/connector';
-import app from '../../../server';
+import pgPool from '../../../../db/connector';
+import app from '../../../';
 
 global.should = chai.should();
 global.chai = chai;

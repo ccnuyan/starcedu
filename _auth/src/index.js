@@ -1,3 +1,5 @@
+import serverConfig from '../../serverConfig';
+
 import api from '../src/api/';
 import web from '../src/web/';
 
@@ -6,9 +8,7 @@ import tenantAuth from './auth/byPassTenantAuth';
 import userAUth from './auth/byPassUserAuth';
 
 const session2Req = (req, res, next) => {
-  Object.keys(req.session).forEach((k) => {
-    if (k !== 'cookie')req[k] = req.session[k];
-  });
+  Object.keys(req.session).forEach((k) => { if (k !== 'cookie') req[k] = req.session[k]; });
   next();
 };
 

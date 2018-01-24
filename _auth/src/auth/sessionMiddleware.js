@@ -2,10 +2,12 @@ import connectRedis from 'connect-redis';
 import session from 'express-session';
 import chalk from 'chalk';
 
+import serverConfig from '../../../serverConfig';
+
 const RedisStore = connectRedis(session);
 
 const ssConfig = {
-  secret: serverConfig.auth.session.secret,
+  secret: serverConfig.session.secret,
   resave: true,
   saveUninitialized: true,
   cookie: {

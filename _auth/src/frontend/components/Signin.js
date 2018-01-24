@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Motion, spring } from 'react-motion';
 import {
   Link,
 } from 'react-router-dom';
@@ -15,7 +14,6 @@ import PasswordField from './common/user/PasswordField';
 import OAuthProviders from './common/user/OAuthProviders';
 import userActions from '../../store/actions/userActions';
 import QQInfo from './common/user/oauth/QQInfo';
-import Busy from './Busy';
 
 import init from '../initFormValidation';
 

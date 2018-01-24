@@ -1,6 +1,4 @@
-import chalk from 'chalk';
-
-import indexHtml from './indexFabricator';
+import indexFabricator from '../../../utils/indexFabricator';
 import callback from './controllers/oauth/callback';
 import qq from './controllers/oauth/qq';
 import authorize from './controllers/authorize';
@@ -64,6 +62,6 @@ export default (app) => {
       },
     };
 
-    res.send(indexHtml.replace('_starc_server_state_', JSON.stringify(preloadedState, null, 2)));
+    res.send(indexFabricator('auth').replace('_starc_server_state_', JSON.stringify(preloadedState, null, 2)));
   });
 };

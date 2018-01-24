@@ -5,14 +5,13 @@
     ".git"
   ],
   "verbose": true,
-  "exec": "babel-node ./server/index",
+  "exec": "npm-run-all -p start-auth start-disk",
   "watch": [
-    "config/",
-    "server/",
-    "src/store",
-    "src/web",
-    "src/api",
-    "src/services"
+    "_auth/",
+    "_disk/",
+    "serverConfig",
+    "tasks",
+    "utils"
   ],
   "env": {
     "NODE_ENV": "development"

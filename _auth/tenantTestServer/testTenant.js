@@ -1,4 +1,3 @@
-
 import express from 'express';
 import bodyParser from 'body-parser';
 import compression from 'compression';
@@ -10,15 +9,13 @@ import uuid from 'uuid';
 import fetch from 'cross-fetch';
 import jsonwebtoken from 'jsonwebtoken';
 
-import '../../config';
-import '../../globals';
+import serverConfig from '../../serverConfig';
 
 const rawIndexHTML = fs.readFileSync(path.join(__dirname, './testTenant.html'), 'utf-8');
 
 const app = express();
 
 // serve the app
-global.report();
 
 // express middleware
 app.use(compression());
@@ -80,9 +77,9 @@ app.get('/oauth/callback', async (req, res) => {
 // run server
 const server = app.listen(28000, (err) => {
   if (err) {
-    printError(err, __filename);
+    console.log(chalk.red(err)); // eslint-disable-line
   } else {
-    printMessage(`${serverConfig.title} is listening on port ${28000}`, __filename);
+    console.log(chalk.blue(`${serverConfig.title} is listening on port ${PORT}`)); // eslint-disable-line
   }
 });
 

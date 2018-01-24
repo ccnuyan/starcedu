@@ -2,7 +2,7 @@ import { Router } from 'express';
 import uuid from 'uuid';
 import querystring from 'querystring';
 
-import config from '../../../../config';
+import serverConfig from '../../../../../serverConfig';
 
 const router = Router();
 
@@ -12,11 +12,11 @@ router.get('/', (req, res) => {
   const query = {
     response_type: 'code',
     scope: 'get_user_info',
-    client_id: config.oauth.qq.app_id,
-    redirect_uri: config.oauth.qq.redirect_uri,
+    client_id: serverConfig.oauth.qq.app_id,
+    redirect_uri: serverConfig.oauth.qq.redirect_uri,
     state,
   };
-  const location = `${config.oauth.qq.pcCodeHost}?${querystring.stringify(query)}`;
+  const location = `${serverConfig.oauth.qq.pcCodeHost}?${querystring.stringify(query)}`;
   res.redirect(location);
 });
 

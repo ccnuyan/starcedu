@@ -7,17 +7,11 @@ import config from '../../config';
 
 
 class FixedMenu extends Component {
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    user: PropTypes.object.isRequired,
-  }
-
   componentDidMount = () => {
     $(this.header).css({ right: `${window.getScrollbarWidth()}px` });
   }
 
-  render() {
+  render = () => {
     const { user } = this.props;
     return (
       <div ref={ e => this.header = e } className={ `ui huge inverted ${config.theme} home menu` }>
@@ -60,14 +54,14 @@ class FixedMenu extends Component {
             <Link className="icon item" to='/user/signin'>
               <div className="ui content">
                 <i className="icon sign in"></i>
-                登入
+                  登入
               </div>
             </Link>}
             {user.id ? '' :
             <Link className="icon item" to='/user/signup'>
               <div className="ui content">
                 <i className="icon smile"></i>
-                注册
+                  注册
               </div>
             </Link>}
           </div>
@@ -76,6 +70,12 @@ class FixedMenu extends Component {
     );
   }
 }
+
+FixedMenu.propTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,
