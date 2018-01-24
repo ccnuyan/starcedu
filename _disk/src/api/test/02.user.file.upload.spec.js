@@ -11,7 +11,7 @@ const callbackbody = {
 };
 
 describe('user upload file', function () { // eslint-disable-line
-  this.timeout(2000);
+  this.timeout(10000);
   this.filename = 'filename';
 
   beforeEach(async () => {
