@@ -12,4 +12,5 @@ export default {
     idleTimeoutMillis: 30000,
   },
   mode: 'production',
+  assetsPath: '../build/assets.json',
 };

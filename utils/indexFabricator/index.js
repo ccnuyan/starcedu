@@ -9,7 +9,7 @@ const indexFactory = {
 
 export default (app) => {
   if (!indexFactory[app]) {
-    const contents = fs.readFileSync(path.join(__dirname, '../../build/assets.json'), 'utf-8');
+    const contents = fs.readFileSync(path.join(__dirname, serverConfig.assetsPath), 'utf-8');
 
     // Define to JSON type
     const assets = JSON.parse(contents);

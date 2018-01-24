@@ -26,19 +26,19 @@ class Home extends Component {
       },
     });
 
-    $('.masthead')
-      .visibility({
-        context: $('.home-route'),
-        once: false,
-        onUpdate(calculations) {
-          $('.masthead .dark_segment_content_overlay').css({ opacity: 0.6 + (calculations.percentagePassed * 0.4) });
-          $('.masthead .ui.text.container').css({
-            bottom: `${(-calculations.percentagePassed * 100)}px`,
-            opacity: 1 - (calculations.percentagePassed * 5),
-          });
-        },
-      });
-    $('.ui.rating').rating();
+    // $('.masthead')
+    //   .visibility({
+    //     context: $('.home-route'),
+    //     once: false,
+    //     onUpdate(calculations) {
+    //       $('.masthead .dark_segment_content_overlay').css({ opacity: 0.6 + (calculations.percentagePassed * 0.4) });
+    //       $('.masthead .ui.text.container').css({
+    //         bottom: `${(-calculations.percentagePassed * 100)}px`,
+    //         opacity: 1 - (calculations.percentagePassed * 5),
+    //       });
+    //     },
+    //   });
+    // $('.ui.rating').rating();
   }
 
   render() {

@@ -6,4 +6,5 @@ export default {
   log: 'tiny',
   minDelay: 300,
   maxDelay: 1000,
+  assetsPath: '../../build/assets.json',
 };

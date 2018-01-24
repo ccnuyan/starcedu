@@ -12,7 +12,10 @@ import crossDomain from '../utils/middlewares/crossDomain';
 import ajaxDetector from '../utils/middlewares/ajaxDetector';
 import routes from './src';
 
+
 import '../serverConfig/tenants';
+
+console.log('ready to run');
 
 const app = express();
 
@@ -55,4 +58,3 @@ const server = app.listen(PORT, (err) => {
 });
 
 export default server;
-

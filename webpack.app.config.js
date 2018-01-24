@@ -2,12 +2,10 @@ import path from 'path';
 import webpack from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
-import serverConfig from './serverConfig';
-
 export default (app) => {
   return {
     entry: {
-      index: ['babel-polyfill', path.join(__dirname, `/_${app}/src/index.js`)],
+      index: ['babel-polyfill', path.join(__dirname, `/_${app}/index.js`)],
     },
     module: {
       rules: [{
@@ -18,7 +16,7 @@ export default (app) => {
     },
     output: {
       filename: 'index.js',
-      libraryTarget: 'commonjs2',
+      libraryTarget: 'commonjs',
       path: path.join(__dirname, '/server'),
     },
     target: 'node',
@@ -30,11 +28,11 @@ export default (app) => {
         {
           'process.env.NODE_ENV': '"production"',
           'process.env.BROWSER': false,
-          serverConfig,
         },
       ),
       new CopyWebpackPlugin([
         { from: './serverConfig/tenants/tenants.json', to: './tenants.json' },
+        { from: './utils/indexFabricator/index.html', to: './index.html' },
       ]),
 
       // Do not create separate chunks of the server bundle
@@ -50,8 +48,6 @@ export default (app) => {
       __filename: false,
       __dirname: false,
     },
-
-    devtool: 'source-map',
   };
 };
 
