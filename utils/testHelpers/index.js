@@ -1,5 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import auth from '../../_auth';
+import disk from '../../_disk';
 
 import '../../serverConfig';
 import pgPool from '../../db/connector';
@@ -7,9 +9,11 @@ import pgPool from '../../db/connector';
 chai.should();
 
 // http://chaijs.com/api/bdd/
-after((done) => {
+after(async () => {
   pgPool.end();
-  done();
+  auth.close();
+  disk.close();
+  return Promise.resolve();
 });
 
 global.should = chai.should();

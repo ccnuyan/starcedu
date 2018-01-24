@@ -5,7 +5,7 @@ import serverConfig from './serverConfig';
 export default (app) => {
   return {
     entry: {
-      index: ['babel-polifill', path.join(__dirname, `/_${app}/src/index.js`)],
+      index: ['babel-polyfill', path.join(__dirname, `/_${app}/src/index.js`)],
     },
     module: {
       rules: [{
@@ -49,3 +49,4 @@ export default (app) => {
     devtool: 'source-map',
   };
 };
+

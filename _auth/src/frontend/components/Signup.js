@@ -15,21 +15,11 @@ import init from '../initFormValidation';
 import config from '../config';
 
 class Signup extends Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    user: PropTypes.object.isRequired,
-    oauthUser: PropTypes.object.isRequired,
-    submitInfo: PropTypes.object.isRequired,
-    signup: PropTypes.func.isRequired,
-    busy: PropTypes.bool.isRequired,
-    location: PropTypes.object.isRequired,
-  }
-
   componentDidMount() {
     init();
   }
 
-  onFormSubmit = (event) => {
+  onFormSubmit(event) {
     event.preventDefault();
     if ($(this.form).form('is valid')) {
       this.props.signup(this.props.submitInfo);
@@ -76,6 +66,16 @@ class Signup extends Component {
     );
   }
 }
+
+Signup.propTypes = {
+  history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  oauthUser: PropTypes.object.isRequired,
+  submitInfo: PropTypes.object.isRequired,
+  signup: PropTypes.func.isRequired,
+  busy: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,

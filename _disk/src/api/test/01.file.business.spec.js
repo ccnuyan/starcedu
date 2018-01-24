@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
+
 import serverConfig from '../../../../serverConfig';
-import './testHelpers';
+import '../../../../utils/testHelpers';
 import pgPool from '../../../../db/connector';
 import app from '../../../';
 
@@ -11,24 +12,22 @@ const callbackbody = {
 };
 
 describe('file business', function () { // eslint-disable-line
-  this.timeout(10000);
+  this.timeout(2000);
   this.filename = 'filename';
+  this.user = {
+    id: '1234567890',
+    username: 'test@user.com',
+  };
+  this.user.token = jwt.sign({
+    ...this.user,
+    to: 'local_test_tenant',
+  }, serverConfig.jwt.secret, {
+    expiresIn: serverConfig.jwt.expiresIn,
+    issuer: 'local',
+  });
+
   before(async () => {
     await pgPool.query('delete from starcedu_disk.files');
-
-    this.user = {
-      id: '1234567890',
-      username: 'test@user.com',
-    };
-    this.user.token = jwt.sign({
-      ...this.user,
-      to: 'local_test_tenant',
-    },
-      serverConfig.jwt.secret,
-      {
-        expiresIn: serverConfig.jwt.expiresIn,
-        issuer: 'local',
-      });
   });
 
   it('should return empty list at beginning', () => {

@@ -2,6 +2,8 @@
   this middleware won't interupt the anonymous accessing
 */
 import chalk from 'chalk';
+
+import serverConfig from '../../../serverConfig';
 import { verify } from '../../src/services/tokenServices';
 import pgPool from '../../../db/connector';
 

@@ -1,5 +1,7 @@
 import jsonwebtoken from 'jsonwebtoken';
+
 import serverConfig from '../../../serverConfig';
+import tenants from '../../../serverConfig/tenants';
 import pgPool from '../../../db/connector';
 import { sign } from './tokenServices';
 

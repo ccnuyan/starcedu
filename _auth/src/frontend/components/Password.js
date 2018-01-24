@@ -10,15 +10,7 @@ import userActions from '../../store/actions/userActions';
 import config from '../config';
 import init from '../initFormValidation';
 
-class Signup extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired,
-    submitInfo: PropTypes.object.isRequired,
-    update_password: PropTypes.func.isRequired,
-    busy: PropTypes.bool.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-  }
+class Password extends Component {
 
   componentDidMount() {
     init();
@@ -27,7 +19,7 @@ class Signup extends Component {
     }
   }
 
-  onFormSubmit = (event) => {
+  onFormSubmit(event) {
     event.preventDefault();
     if ($(this.form).form('is valid')) {
       this.props.update_password(this.props.submitInfo);
@@ -100,6 +92,15 @@ class Signup extends Component {
   }
 }
 
+Password.propTypes = {
+  user: PropTypes.object.isRequired,
+  submitInfo: PropTypes.object.isRequired,
+  update_password: PropTypes.func.isRequired,
+  busy: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,
   submitInfo: state.user.toJSON().submitInfo,
@@ -114,5 +115,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Password);
 

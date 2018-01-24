@@ -1,7 +1,9 @@
-import serverConfig from '../../../serverConfig';
 /*
   this middleware won't interupt the anonymous accessing
 */
+import serverConfig from '../../../serverConfig';
+import tenants from '../../../serverConfig/tenants';
+
 export default async (req, res, next) => {
     // no authorization token: bypass
   if (!req.headers[serverConfig.tenantHeader]) { return next(); }

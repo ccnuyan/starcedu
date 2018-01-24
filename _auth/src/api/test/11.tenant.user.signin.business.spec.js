@@ -1,5 +1,6 @@
 import '../../../../utils/testHelpers';
 import serverConfig from '../../../../serverConfig';
+import tenants from '../../../../serverConfig/tenants';
 import pgPool from '../../../../db/connector';
 import app from '../../../';
 

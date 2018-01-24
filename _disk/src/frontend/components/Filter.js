@@ -9,19 +9,19 @@ import qiniuActions from '../../store/actions/qiniuFineUploader';
 import mimeMap from './mimeMap';
 
 class Filter extends Component {
-  componentDidMount = () => {
+  componentDidMount() {
     this.uploader = this.props.files_initialize({
       button: this.uploadButton,
     });
 
     $('.filter-menu>.item').popup();
   }
-  onFilterSelected = (event) => {
+  onFilterSelected(event) {
     const payload = {};
     payload[event.currentTarget.dataset.key] = true;
     this.props.set_filter_one(payload);
   }
-  render = () => {
+  render() {
     const { filter } = this.props;
     const embed = this.props.uiconfig.mode === 'embed';
 

@@ -1,3 +1,4 @@
+import serverConfig from '../../../../serverConfig';
 import pgPool from '../../../../db/connector';
 
 const create_file = async ({ uploader_id, filename }) => {

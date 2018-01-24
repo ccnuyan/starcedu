@@ -7,5 +7,6 @@ export default {
   },
   test: {
     dbname: 'starcedu_disk',
+    port: 18001,
   },
 };

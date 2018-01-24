@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import serverConfig from '../../../../serverConfig';
 import userServices from '../../services/userServices';
 import paramsValidator from '../paramsValidator';

@@ -8,14 +8,6 @@ import { withRouter } from 'react-router-dom';
 import config from '../config';
 
 class CallbackRedirect extends Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    user: PropTypes.object.isRequired,
-    tenant: PropTypes.object.isRequired,
-    oauthUser: PropTypes.object.isRequired,
-    callback: PropTypes.string,
-  }
-
   render() {
     const { user, tenant, oauthUser, callback } = this.props;
 
@@ -42,6 +34,14 @@ class CallbackRedirect extends Component {
     return <Redirect to={ '/' }/>;
   }
 }
+
+CallbackRedirect.propTypes = {
+  history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  tenant: PropTypes.object.isRequired,
+  oauthUser: PropTypes.object.isRequired,
+  callback: PropTypes.string,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,

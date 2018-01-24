@@ -2,7 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
 import chalk from 'chalk';
+import _ from 'lodash';
 
+import serverConfig from '../serverConfig';
 import { pg } from './connector';
 import packageConfig from './../package.json';
 

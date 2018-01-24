@@ -5,27 +5,22 @@ import config from '../config';
 import filesActions from '../../store/actions/filesActions';
 
 class FileOptions extends Component {
-  static propTypes = {
-    file: PropTypes.object.isRequired,
-    file_remove: PropTypes.func.isRequired,
-    file_rename: PropTypes.func.isRequired,
-    set_cl_mode: PropTypes.func.isRequired,
-  }
+  static
 
-  handleRemove = () => {
+  handleRemove() {
     this.props.file_remove({
       file_id: this.props.file.id,
     });
   }
 
-  handleRename = () => {
+  handleRename() {
     this.props.file_rename({
       file_id: this.props.file.id,
       title: this.props.file.cl_input_title,
     });
   }
 
-  handleOK = () => {
+  handleOK() {
     if (this.props.file.cl_mode === 'rename') {
       this.handleRename();
     }
@@ -34,7 +29,7 @@ class FileOptions extends Component {
     }
   }
 
-  setMode = (mode) => {
+  setMode(mode) {
     this.props.set_cl_mode({ file_id: this.props.file.id, mode });
   }
 
@@ -96,6 +91,13 @@ class FileOptions extends Component {
       </div>);
   }
 }
+
+FileOptions.propTypes = {
+  file: PropTypes.object.isRequired,
+  file_remove: PropTypes.func.isRequired,
+  file_rename: PropTypes.func.isRequired,
+  set_cl_mode: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = () => ({
 });

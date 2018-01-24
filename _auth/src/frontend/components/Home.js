@@ -7,19 +7,13 @@ import FrontPanel from './common/FrontPanel';
 import HomeMenu from './common/HomeMenu';
 
 import WebApps from './includes/WebApps';
-// import Slogan1 from './includes/Slogan1';
-// import Slogan2 from './includes/Slogan2';
 import DesktopApps from './includes/DesktopApps';
 import Others from './includes/Others';
 import config from '../config';
 
 
 class Home extends Component {
-  static propTypes = {
-    location: PropTypes.object.isRequired,
-  }
-
-  componentDidMount = () => {
+  componentDidMount() {
     $('#main')
     .visibility({
       context: $('.home-route'),
@@ -47,7 +41,7 @@ class Home extends Component {
     $('.ui.rating').rating();
   }
 
-  render = () => {
+  render() {
     return (
       <div className="home-route main-route-content">
         <div className="home-content">
@@ -67,5 +61,9 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
 export default withRouter(Home);

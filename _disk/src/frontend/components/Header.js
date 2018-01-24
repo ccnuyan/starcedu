@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Header extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired,
-  }
 
-  render = () => {
+  render() {
     const { user } = this.props;
     return (
       <div className={ 'ui huge secondary inverted blue fixed menu' } style={ { margin: 0, borderBottom: '1px solid white' } }>
@@ -63,6 +60,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  user: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,

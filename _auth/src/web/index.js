@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import indexFabricator from '../../../utils/indexFabricator';
 import callback from './controllers/oauth/callback';
 import qq from './controllers/oauth/qq';

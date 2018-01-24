@@ -4,13 +4,8 @@ import { connect } from 'react-redux';
 import userActions from '../../../../store/actions/userActions';
 
 class EmailField extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired,
-    submitInfo: PropTypes.object.isRequired,
-    setSubmitInfo: PropTypes.func.isRequired,
-  }
 
-  onChange = (event) => {
+  onChange(event) {
     event.preventDefault();
     this.props.setSubmitInfo(event.target.value.toLowerCase());
   }
@@ -29,6 +24,12 @@ class EmailField extends Component {
     );
   }
 }
+
+EmailField.propTypes = {
+  user: PropTypes.object.isRequired,
+  submitInfo: PropTypes.object.isRequired,
+  setSubmitInfo: PropTypes.func.isRequired,
+};
 
 
 const mapStateToProps = state => ({

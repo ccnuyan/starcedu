@@ -5,11 +5,11 @@ class TestApp extends Component {
     window.starcdisk.init();
   }
 
-  onShowup = () => {
+  onShowup() {
     window.starcdisk.showup();
   }
 
-  render = () => {
+  render() {
     return (
       <div className="ui text container">
         <div className="ui segment">

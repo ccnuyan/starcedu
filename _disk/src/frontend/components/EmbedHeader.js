@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class EmbedHeader extends Component {
-  render = () => {
+  render() {
     return (
       <div className={ 'ui huge secondary inverted blue menu' } style={ { margin: 0, borderBottom: '1px solid white' } }>
         <div className="active icon item" href='/apps/disk'>

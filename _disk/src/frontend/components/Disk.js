@@ -9,10 +9,6 @@ import EmbedHeader from './EmbedHeader';
 import filesActions from '../../store/actions/filesActions';
 
 class Disk extends Component {
-  static propTypes = {
-    files_get_uploaded: PropTypes.func.isRequired,
-    uiconfig: PropTypes.object.isRequired,
-  };
   componentDidMount() {
     if (this.props.uiconfig.mode === 'embed') {
       this.props.files_get_uploaded();
@@ -23,7 +19,7 @@ class Disk extends Component {
     }, 200);
   }
 
-  render = () => {
+  render() {
     const embed = this.props.uiconfig.mode === 'embed';
     const { uiconfig } = this.props;
     if (embed) {
@@ -54,6 +50,11 @@ class Disk extends Component {
     );
   }
 }
+
+Disk.propTypes = {
+  files_get_uploaded: PropTypes.func.isRequired,
+  uiconfig: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

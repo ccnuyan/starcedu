@@ -1,4 +1,5 @@
-import './testHelpers';
+import tenants from '../../../../serverConfig/tenants';
+import '../../../../utils/testHelpers';
 import serverConfig from '../../../../serverConfig';
 import app from '../../../';
 
