@@ -4,15 +4,8 @@ import { connect } from 'react-redux';
 import userActions from '../../../../store/actions/userActions';
 
 class PasswordField extends Component {
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    user: PropTypes.object.isRequired,
-    submitInfo: PropTypes.object.isRequired,
-    setSubmitInfo: PropTypes.func.isRequired,
-  }
 
-  onChange = (event) => {
+  onChange(event) {
     event.preventDefault();
     const payload = {};
     payload[this.props.name] = event.target.value;
@@ -31,6 +24,14 @@ class PasswordField extends Component {
     );
   }
 }
+
+PasswordField.propTypes = {
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
+  submitInfo: PropTypes.object.isRequired,
+  setSubmitInfo: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,

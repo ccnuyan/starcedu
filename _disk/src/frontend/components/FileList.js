@@ -8,19 +8,13 @@ import qiniuActions from '../../store/actions/qiniuFineUploader';
 import mimeMap from './mimeMap';
 
 class FileList extends Component {
-  static propTypes = {
-    uploaded_files: PropTypes.object.isRequired,
-    filter: PropTypes.object.isRequired,
-    files_initialize: PropTypes.func.isRequired,
-  };
-
-  componentDidMount = () => {
+  componentDidMount() {
     this.uploader = this.props.files_initialize({
       button: this.uploadButton,
     });
   }
 
-  render = () => {
+  render() {
     const files = Object.keys(this.props.uploaded_files).map((k) => {
       return this.props.uploaded_files[k];
     });
@@ -70,6 +64,12 @@ class FileList extends Component {
     );
   }
 }
+
+FileList.propTypes = {
+  uploaded_files: PropTypes.object.isRequired,
+  filter: PropTypes.object.isRequired,
+  files_initialize: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

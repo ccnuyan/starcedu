@@ -9,19 +9,19 @@ import qiniuActions from '../../store/actions/qiniuFineUploader';
 import mimeMap from './mimeMap';
 
 class Filter extends Component {
-  componentDidMount = () => {
+  componentDidMount() {
     this.uploader = this.props.files_initialize({
       button: this.uploadButton,
     });
 
     $('.filter-menu>.item').popup();
   }
-  onFilterSelected = (event) => {
+  onFilterSelected(event) {
     const payload = {};
     payload[event.currentTarget.dataset.key] = true;
     this.props.set_filter_one(payload);
   }
-  render = () => {
+  render() {
     const { filter } = this.props;
     const embed = this.props.uiconfig.mode === 'embed';
 
@@ -34,7 +34,7 @@ class Filter extends Component {
       filterStatistics[k] = _.sum(files.map(f => (mimeMap[k].mimes.indexOf(f.mime) >= 0 ? 1 : 0)));
     });
 
-    return (<div className={ `ui huge secondary bottom icon menu filter-menu ${embed ? '' : ' fixed'}` }
+    return (<div className={ `ui huge secondary icon menu filter-menu${embed ? '' : ' bottom fixed'}` }
       style={ { margin: 0, borderTop: '1px solid #0E6EB8', background: 'white' } }
             >
       <a className="item" ref={ e => this.uploadButton = e } data-content="上传新文件">

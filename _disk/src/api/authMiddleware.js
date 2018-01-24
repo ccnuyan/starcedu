@@ -1,3 +1,5 @@
+import tenants from '../../../serverConfig/tenants';
+
 export default (req, res, next) => {
   if (req.user && req.user.id) {
     req.tenant = tenants[req.user.to];

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 class Slogan1 extends Component {
-  static propTypes = {
-    // prop: PropTypes,
-  }
-
-  componentDidMount = () => {
+  componentDidMount() {
     $('.ui.progress').progress();
   }
 

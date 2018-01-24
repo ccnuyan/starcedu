@@ -7,19 +7,13 @@ import FrontPanel from './common/FrontPanel';
 import HomeMenu from './common/HomeMenu';
 
 import WebApps from './includes/WebApps';
-// import Slogan1 from './includes/Slogan1';
-// import Slogan2 from './includes/Slogan2';
 import DesktopApps from './includes/DesktopApps';
 import Others from './includes/Others';
 import config from '../config';
 
 
 class Home extends Component {
-  static propTypes = {
-    location: PropTypes.object.isRequired,
-  }
-
-  componentDidMount = () => {
+  componentDidMount() {
     $('#main')
     .visibility({
       context: $('.home-route'),
@@ -32,22 +26,22 @@ class Home extends Component {
       },
     });
 
-    $('.masthead')
-      .visibility({
-        context: $('.home-route'),
-        once: false,
-        onUpdate(calculations) {
-          $('.masthead .dark_segment_content_overlay').css({ opacity: 0.6 + (calculations.percentagePassed * 0.4) });
-          $('.masthead .ui.text.container').css({
-            bottom: `${(-calculations.percentagePassed * 100)}px`,
-            opacity: 1 - (calculations.percentagePassed * 5),
-          });
-        },
-      });
-    $('.ui.rating').rating();
+    // $('.masthead')
+    //   .visibility({
+    //     context: $('.home-route'),
+    //     once: false,
+    //     onUpdate(calculations) {
+    //       $('.masthead .dark_segment_content_overlay').css({ opacity: 0.6 + (calculations.percentagePassed * 0.4) });
+    //       $('.masthead .ui.text.container').css({
+    //         bottom: `${(-calculations.percentagePassed * 100)}px`,
+    //         opacity: 1 - (calculations.percentagePassed * 5),
+    //       });
+    //     },
+    //   });
+    // $('.ui.rating').rating();
   }
 
-  render = () => {
+  render() {
     return (
       <div className="home-route main-route-content">
         <div className="home-content">
@@ -67,5 +61,9 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
 export default withRouter(Home);

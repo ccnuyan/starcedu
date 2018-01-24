@@ -9,13 +9,6 @@ import config from '../config';
 import userActions from '../../store/actions/userActions';
 
 class Tenant extends Component {
-  static propTypes = {
-    tenant: PropTypes.object.isRequired,
-    busy: PropTypes.bool.isRequired,
-    user: PropTypes.object.isRequired,
-    tenant_signout: PropTypes.func.isRequired,
-  }
-
   componentDidUpdate(prevProps) {
     if (!this.props.tenant.id && prevProps.tenant.id) {
       window.location.replace(prevProps.tenant.home_url);
@@ -47,7 +40,15 @@ class Tenant extends Component {
   }
 }
 
+Tenant.propTypes = {
+  tenant: PropTypes.object.isRequired,
+  busy: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
+  tenant_signout: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => ({
+  state,
 });
 
 const mapDispatchToProps = (dispatch) => {

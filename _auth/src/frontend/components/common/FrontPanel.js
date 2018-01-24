@@ -2,14 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import config from '../../../../config';
+import config from '../../config';
 
 class FrontPanel extends Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    user: PropTypes.object.isRequired,
-  }
-
   render() {
     return (
       <div className="ui inverted vertical masthead center aligned transparent segment">
@@ -26,6 +21,11 @@ class FrontPanel extends Component {
     );
   }
 }
+
+FrontPanel.propTypes = {
+  history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,

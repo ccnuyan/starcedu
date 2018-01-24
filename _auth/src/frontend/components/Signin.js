@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Motion, spring } from 'react-motion';
 import {
   Link,
 } from 'react-router-dom';
@@ -15,35 +14,22 @@ import PasswordField from './common/user/PasswordField';
 import OAuthProviders from './common/user/OAuthProviders';
 import userActions from '../../store/actions/userActions';
 import QQInfo from './common/user/oauth/QQInfo';
-import Busy from './Busy';
 
 import init from '../initFormValidation';
 
 class Signin extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired,
-    oauthUser: PropTypes.object.isRequired,
-    submitInfo: PropTypes.object.isRequired,
-    busy: PropTypes.bool.isRequired,
-    signin: PropTypes.func.isRequired,
-    setAutoSignin: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    tenant: PropTypes.object.isRequired,
-  }
-
   componentDidMount() {
     init();
   }
 
-  onFormSubmit = (event) => {
+  onFormSubmit(event) {
     event.preventDefault();
     if ($(this.form).form('is valid')) {
       this.props.signin(this.props.submitInfo);
     }
   }
 
-  onAutoSiginChange = (event) => {
+  onAutoSiginChange(event) {
     this.props.setAutoSignin(event.target.checked);
   }
 
@@ -101,6 +87,18 @@ class Signin extends Component {
       </div>);
   }
 }
+
+Signin.propTypes = {
+  user: PropTypes.object.isRequired,
+  oauthUser: PropTypes.object.isRequired,
+  submitInfo: PropTypes.object.isRequired,
+  busy: PropTypes.bool.isRequired,
+  signin: PropTypes.func.isRequired,
+  setAutoSignin: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  tenant: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,

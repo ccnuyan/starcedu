@@ -4,12 +4,6 @@ import { connect } from 'react-redux';
 import userActions from '../../../../../store/actions/userActions';
 
 class QQInfo extends Component {
-  static propTypes = {
-    oauthUser: PropTypes.object.isRequired,
-    oauth_signout: PropTypes.func.isRequired,
-    busy: PropTypes.bool.isRequired,
-  }
-
   render() {
     const { oauthUser } = this.props;
     return (
@@ -42,4 +36,11 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
+
+QQInfo.propTypes = {
+  oauthUser: PropTypes.object.isRequired,
+  oauth_signout: PropTypes.func.isRequired,
+  busy: PropTypes.bool.isRequired,
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(QQInfo);

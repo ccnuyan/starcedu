@@ -1,3 +1,6 @@
+import _ from 'lodash';
+
+import serverConfig from '../../../../serverConfig';
 import userServices from '../../services/userServices';
 import paramsValidator from '../paramsValidator';
 
@@ -24,7 +27,7 @@ const signin = async (req, res) => {
     if (req.session) {
       req.session.user = pickedUser;
       if (payload.autoSignin === true) {
-        req.session.cookie.maxAge = serverConfig.auth.cookie.maxAge;
+        req.session.cookie.maxAge = serverConfig.cookie.maxAge;
       } else {
         req.session.cookie.expires = false;
       }

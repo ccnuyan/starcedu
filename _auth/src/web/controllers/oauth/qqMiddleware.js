@@ -1,7 +1,6 @@
 import querystring from 'querystring';
-
+import serverConfig from '../../../../../serverConfig';
 import goGet from './goGet';
-import config from '../../../../config';
 
 const qqMiddleware = (req, res, next) => {
   // ref http://wiki.connect.qq.com/oauth2-0%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3
@@ -12,13 +11,13 @@ const qqMiddleware = (req, res, next) => {
     grant_type: 'authorization_code',
     state,
     code,
-    client_id: config.oauth.qq.app_id,
-    client_secret: config.oauth.qq.app_key,
-    redirect_uri: config.oauth.qq.redirect_uri,
+    client_id: serverConfig.oauth.qq.app_id,
+    client_secret: serverConfig.oauth.qq.app_key,
+    redirect_uri: serverConfig.oauth.qq.redirect_uri,
   };
 
   // go get the token
-  goGet(config.oauth.qq.pcTokenHost, query, (err1, rs1, bd1) => {
+  goGet(serverConfig.oauth.qq.pcTokenHost, query, (err1, rs1, bd1) => {
     if (err1) {
       return next(err1);
     }
@@ -26,7 +25,7 @@ const qqMiddleware = (req, res, next) => {
     const { access_token, expires_in, refresh_token } = querystring.parse(bd1); // eslint-disable-line
 
     // go get the openid
-    goGet(config.oauth.qq.pcOpenidHost, { access_token }, (err2, rs2, bd2) => {
+    goGet(serverConfig.oauth.qq.pcOpenidHost, { access_token }, (err2, rs2, bd2) => {
       if (err2) {
         return next(err2);
       }
@@ -42,9 +41,9 @@ const qqMiddleware = (req, res, next) => {
       };
 
       // go get the user info
-      goGet(config.oauth.qq.infoHost, {
+      goGet(serverConfig.oauth.qq.infoHost, {
         openid,
-        oauth_consumer_key: config.oauth.qq.app_id,
+        oauth_consumer_key: serverConfig.oauth.qq.app_id,
         access_token,
       }, (err3, rs3, bd3) => { // eslint-disable-line
         if (err3) {

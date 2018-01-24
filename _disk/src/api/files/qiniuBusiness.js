@@ -1,9 +1,9 @@
 import qiniu from 'qiniu';
-import conf from '../../../config';
+import serverConfig from '../../../../serverConfig';
 
-qiniu.conf.ACCESS_KEY = conf.qiniu.ak;
-qiniu.conf.SECRET_KEY = conf.qiniu.sk;
-const mac = new qiniu.auth.digest.Mac(conf.qiniu.ak, conf.qiniu.sk);
+qiniu.conf.ACCESS_KEY = serverConfig.qiniu.ak;
+qiniu.conf.SECRET_KEY = serverConfig.qiniu.sk;
+const mac = new qiniu.auth.digest.Mac(serverConfig.qiniu.ak, serverConfig.qiniu.sk);
 const config = new qiniu.conf.Config();
 const bucketManager = new qiniu.rs.BucketManager(mac, config);
 
@@ -19,10 +19,10 @@ const requestUpload = () => {
   // first create the id
   // http://eslint.org/docs/rules/quotes
   let putPolicy;
-  if (conf.qiniu.mode === 'callback') {
+  if (serverConfig.qiniu.mode === 'callback') {
     putPolicy = new qiniu.rs.PutPolicy({
-      scope: conf.qiniu.bucket,
-      callbackUrl: `${conf.serviceBase}api/files/upload_callback/`,
+      scope: serverConfig.qiniu.bucket,
+      callbackUrl: `${serverConfig.serviceBase}api/files/upload_callback/`,
       callbackBodyType: 'application/json',
       callbackBody: `{
       "size":$(fsize),
@@ -33,7 +33,7 @@ const requestUpload = () => {
     }` });
   } else {
     putPolicy = new qiniu.rs.PutPolicy({
-      scope: conf.qiniu.bucket,
+      scope: serverConfig.qiniu.bucket,
       returnBody: `{
       "size":$(fsize),
       "mime":$(mimeType),
@@ -51,7 +51,7 @@ const requestUpload = () => {
 const getAccessUrl = (file_id) => {
   // https://developer.qiniu.com/kodo/sdk/1289/nodejs#private-get
   const deadline = parseInt(Date.now() / 1000, 10) + 3600;
-  const access_url = bucketManager.privateDownloadUrl(conf.qiniu.url, file_id, deadline);
+  const access_url = bucketManager.privateDownloadUrl(serverConfig.qiniu.url, file_id, deadline);
   return { access_url };
 };
 
@@ -61,7 +61,7 @@ const generateAccessToken = (requestURI, body) => {
 };
 
 const encodeEntry = () => {
-  return qiniu.util.urlsafeBase64Encode(conf.qiniu.bucket);
+  return qiniu.util.urlsafeBase64Encode(serverConfig.qiniu.bucket);
 };
 
 const encodeFileUrl = (fileUrl) => {

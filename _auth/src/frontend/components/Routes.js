@@ -20,7 +20,7 @@ class Routes extends Component {
       $('#react').css({ display: 'block' });
     }, 200);
   }
-  render = () => {
+  render() {
     return (
 
       <Router>

@@ -1,6 +1,6 @@
 export default {
   title: 'starC教育',
-  theme: 'black',
+  theme: 'teal',
   serviceBase: 'http://www.syncollege.com/',
   domain: 'www.syncollege.com',
 };

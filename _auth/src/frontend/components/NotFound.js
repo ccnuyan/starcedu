@@ -8,10 +8,6 @@ import {
 import config from '../config';
 
 class NotFound extends Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-  }
 
   componentDidMount() {
     setTimeout(() => {
@@ -19,7 +15,7 @@ class NotFound extends Component {
     }, 3000);
   }
 
-  render = () => {
+  render() {
     return (
       <div className="main-route-content">
         <div className="not-found-content">
@@ -45,8 +41,13 @@ class NotFound extends Component {
           </div>
         </div>
       </div>);
-  };
+  }
 }
+
+NotFound.propTypes = {
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = () => ({
 });

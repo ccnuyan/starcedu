@@ -1,14 +1,14 @@
+import serverConfig from '../../serverConfig';
+
 import api from '../src/api/';
 import web from '../src/web/';
 
-import session from './auth/sessionMiddleware';
-import tenantAuth from './auth/byPassTenantAuth';
-import userAUth from './auth/byPassUserAuth';
+import session from '../../utils/middlewares/sessionMiddleware';
+import tenantAuth from '../../utils/middlewares/byPassTenantAuth';
+import userAUth from '../../utils/middlewares/byPassUserAuth';
 
 const session2Req = (req, res, next) => {
-  Object.keys(req.session).forEach((k) => {
-    if (k !== 'cookie')req[k] = req.session[k];
-  });
+  Object.keys(req.session).forEach((k) => { if (k !== 'cookie') req[k] = req.session[k]; });
   next();
 };
 
