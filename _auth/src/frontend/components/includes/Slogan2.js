@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import config from '../../config';
 
 class Slogan1 extends Component {
-  componentDidMount = () => {
+  componentDidMount() {
     $('.ui.accordion').accordion();
   }
 

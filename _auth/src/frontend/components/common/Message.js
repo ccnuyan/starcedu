@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Message extends Component {
-  static propTypes = {
-    message: PropTypes.object.isRequired,
-  }
 
-  componentDidUpdate = (prevProps) => {
+  componentDidUpdate(prevProps) {
     const { message } = this.props;
     if (message.id !== prevProps.message.id) {
       if (message.header) {
@@ -18,7 +15,7 @@ class Message extends Component {
     }
   }
 
-  getStyle = () => {
+  getStyle() {
     return {
       position: 'fixed',
       top: '40px',
@@ -28,7 +25,7 @@ class Message extends Component {
     };
   }
 
-  getDetail = () => {
+  getDetail() {
     const { message } = this.props;
     if (message.details) {
       if (typeof (message.details) === 'string') {
@@ -58,6 +55,10 @@ class Message extends Component {
     );
   }
 }
+
+Message.propTypes = {
+  message: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   message: state.asyncStatus.get('HEADER_MESSAGE').toJSON(),

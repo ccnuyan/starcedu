@@ -1,4 +1,6 @@
 import jwt from 'jsonwebtoken';
+import _ from 'lodash';
+
 import serverConfig from '../../../serverConfig';
 
 export const sign = (issuer, payload) => {

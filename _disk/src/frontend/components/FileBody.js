@@ -5,13 +5,7 @@ import { connect } from 'react-redux';
 import filesActions from '../../store/actions/filesActions';
 
 class FileBody extends Component {
-  static propTypes = {
-    file: PropTypes.object.isRequired,
-    uploading_files: PropTypes.object.isRequired,
-    set_cl_input_title: PropTypes.func.isRequired,
-  }
-
-  handleTitleInput = (event) => {
+  handleTitleInput(event) {
     event.preventDefault();
     this.props.set_cl_input_title({
       file_id: this.props.file.id,
@@ -57,6 +51,12 @@ class FileBody extends Component {
       </div>);
   }
 }
+
+FileBody.propTypes = {
+  file: PropTypes.object.isRequired,
+  uploading_files: PropTypes.object.isRequired,
+  set_cl_input_title: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

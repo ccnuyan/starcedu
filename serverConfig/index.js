@@ -1,12 +1,10 @@
 import chalk from 'chalk';
-import lodash from 'lodash';
+import _ from 'lodash';
 import development from './config.development';
 import production from './config.production';
 import test from './config.test';
 import auth from './_auth.config';
 import disk from './_disk.config';
-
-global._ = lodash;
 
 let configVar = {};
 if (process.env.NODE_ENV === 'production') {

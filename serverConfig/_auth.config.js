@@ -7,5 +7,6 @@ export default {
   },
   test: {
     dbname: 'starcedu_auth',
+    port: 8001,
   },
 };

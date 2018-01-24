@@ -4,4 +4,6 @@ export default {
   ...common,
   mode: 'development',
   log: 'tiny',
+  minDelay: 300,
+  maxDelay: 1000,
 };

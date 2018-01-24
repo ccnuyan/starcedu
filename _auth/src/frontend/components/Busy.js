@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Busy extends Component {
-  static propTypes = {
-    isBusy: PropTypes.bool.isRequired,
-    header: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  }
-
   render() {
     if (this.props.isBusy) {
       return (<div className={ 'ui left aligned icon message' }>
@@ -36,5 +30,11 @@ class Busy extends Component {
     </div>);
   }
 }
+
+Busy.propTypes = {
+  isBusy: PropTypes.bool.isRequired,
+  header: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
 
 export default Busy;

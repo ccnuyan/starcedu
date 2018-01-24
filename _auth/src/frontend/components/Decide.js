@@ -10,14 +10,6 @@ import config from '../config';
 import userActions from '../../store/actions/userActions';
 
 class Decide extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired,
-    tenant: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    busy: PropTypes.bool.isRequired,
-    tenant_signout: PropTypes.func.isRequired,
-  }
-
   componentDidMount() {
     const { user, tenant } = this.props;
     if (!tenant.id) {
@@ -40,7 +32,7 @@ class Decide extends Component {
     }
   }
 
-  tenantSignout = (event) => {
+  tenantSignout(event) {
     this.setState({ target: event.target.dataset.target });
     this.props.tenant_signout();
   }
@@ -90,6 +82,15 @@ class Decide extends Component {
       </div>);
   }
 }
+
+Decide.propTypes = {
+  user: PropTypes.object.isRequired,
+  tenant: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  busy: PropTypes.bool.isRequired,
+  tenant_signout: PropTypes.func.isRequired,
+};
+
 
 const mapStateToProps = (state) => {
   return {

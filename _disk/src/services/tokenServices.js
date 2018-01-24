@@ -6,15 +6,15 @@ export const sign = (issuer, payload) => {
   const user = _.pick(payload, [' id', 'username', 'gender', 'nickname']);
   return jwt.sign(
     user,
-    serverConfig.auth.jwt.secret,
+    serverConfig.jwt.secret,
     {
-      expiresIn: serverConfig.auth.jwt.expiresIn,
+      expiresIn: serverConfig.jwt.expiresIn,
       issuer,
     },
   );
 };
 
 export const verify = (token) => {
-  return jwt.verify(token, serverConfig.auth.jwt.secret);
+  return jwt.verify(token, serverConfig.jwt.secret);
 };
 

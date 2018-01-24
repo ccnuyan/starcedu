@@ -7,11 +7,11 @@ import config from '../../config';
 
 
 class FixedMenu extends Component {
-  componentDidMount = () => {
+  componentDidMount() {
     $(this.header).css({ right: `${window.getScrollbarWidth()}px` });
   }
 
-  render = () => {
+  render() {
     const { user } = this.props;
     return (
       <div ref={ e => this.header = e } className={ `ui huge inverted ${config.theme} home menu` }>

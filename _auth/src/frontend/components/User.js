@@ -13,10 +13,7 @@ import Decide from './Decide';
 import NotFound from './NotFound';
 
 class Home extends Component {
-  static propTypes = {
-    location: PropTypes.object.isRequired,
-  }
-  render = () => {
+  render() {
     const { location } = this.props;
     return (
       <div className="user-form main-route-content">
@@ -32,5 +29,9 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
 export default withRouter(Home);

@@ -7,4 +7,4 @@ Object.keys(tenants).forEach((t) => {
   tenants[t].id = t;
 });
 
-global.tenants = tenants;
+export default tenants;

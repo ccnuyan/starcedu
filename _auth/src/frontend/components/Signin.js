@@ -18,30 +18,18 @@ import QQInfo from './common/user/oauth/QQInfo';
 import init from '../initFormValidation';
 
 class Signin extends Component {
-  static propTypes = {
-    user: PropTypes.object.isRequired,
-    oauthUser: PropTypes.object.isRequired,
-    submitInfo: PropTypes.object.isRequired,
-    busy: PropTypes.bool.isRequired,
-    signin: PropTypes.func.isRequired,
-    setAutoSignin: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-    tenant: PropTypes.object.isRequired,
-  }
-
   componentDidMount() {
     init();
   }
 
-  onFormSubmit = (event) => {
+  onFormSubmit(event) {
     event.preventDefault();
     if ($(this.form).form('is valid')) {
       this.props.signin(this.props.submitInfo);
     }
   }
 
-  onAutoSiginChange = (event) => {
+  onAutoSiginChange(event) {
     this.props.setAutoSignin(event.target.checked);
   }
 
@@ -99,6 +87,18 @@ class Signin extends Component {
       </div>);
   }
 }
+
+Signin.propTypes = {
+  user: PropTypes.object.isRequired,
+  oauthUser: PropTypes.object.isRequired,
+  submitInfo: PropTypes.object.isRequired,
+  busy: PropTypes.bool.isRequired,
+  signin: PropTypes.func.isRequired,
+  setAutoSignin: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  tenant: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,

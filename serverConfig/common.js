@@ -8,13 +8,17 @@
 
 export default {
   title: 'starC教育',
-  port: 18000,
+  port: 8000,
   domain: 'www.syncollege.com',
   serviceBase: '/',
-  maxDelay: 1000,
+  cookie: {
+    maxAge: 14 * 24 * 3600 * 1000,
+  },
   session: {
     secret: '12345678',
   },
+  minDelay: 0,
+  maxDelay: 0,
   jwt: {
     secret: '12345678',
   },

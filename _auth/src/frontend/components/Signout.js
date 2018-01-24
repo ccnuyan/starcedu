@@ -7,19 +7,11 @@ import config from '../config';
 import Busy from './Busy';
 
 class Signout extends Component {
-  static propTypes = {
-    history: PropTypes.object.isRequired,
-    user: PropTypes.object.isRequired,
-    busy: PropTypes.bool.isRequired,
-    signout: PropTypes.func.isRequired,
-    location: PropTypes.object.isRequired,
+  componentDidMount() {
+    this.props.signout();
   }
 
-  componentDidMount = () => {
-    this.props.signout();
-  };
-
-  render = () => {
+  render() {
     const { busy, user } = this.props;
     if (!user.id) {
       return (<Redirect to={ { pathname: '/callback_redirect' } }/>);
@@ -34,8 +26,16 @@ class Signout extends Component {
         </h2>
         <Busy isBusy={ true } header={ busy ? '正在登出' : '正在登出' } content={ busy ? '登出后将自动跳转' : '登出后将自动跳转' }/>
       </div>);
-  };
+  }
 }
+
+Signout.propTypes = {
+  history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  busy: PropTypes.bool.isRequired,
+  signout: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = state => ({
   user: state.user.toJSON().user,
