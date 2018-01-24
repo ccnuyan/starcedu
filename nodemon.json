@@ -5,7 +5,7 @@
     ".git"
   ],
   "verbose": true,
-  "exec": "npm-run-all -p start-auth start-disk",
+  "exec": "npm-run-all -p start-auth-dev start-disk-dev",
   "watch": [
     "_auth/",
     "_disk/",

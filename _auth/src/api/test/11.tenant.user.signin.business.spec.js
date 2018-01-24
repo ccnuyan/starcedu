@@ -4,7 +4,7 @@ import tenants from '../../../../serverConfig/tenants';
 import pgPool from '../../../../db/connector';
 import app from '../../../';
 
-describe('tenant user signin business', function () { // eslint-disable-line
+describe('tenant user signin', function () { // eslint-disable-line
   this.timeout(10000);
   beforeEach(async () => {
     this.basicAuth = new Buffer(`${tenants.local_test_tenant.id}:${tenants.local_test_tenant.pass}`).toString('base64');

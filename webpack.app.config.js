@@ -1,5 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+
 import serverConfig from './serverConfig';
 
 export default (app) => {
@@ -15,9 +17,9 @@ export default (app) => {
       }],
     },
     output: {
-      filename: 'server.js',
+      filename: 'index.js',
       libraryTarget: 'commonjs2',
-      path: path.join(__dirname, `/_${app}/dist`),
+      path: path.join(__dirname, '/server'),
     },
     target: 'node',
     externals: /^[a-z\-0-9]+$/,
@@ -31,6 +33,9 @@ export default (app) => {
           serverConfig,
         },
       ),
+      new CopyWebpackPlugin([
+        { from: './serverConfig/tenants/tenants.json', to: './tenants.json' },
+      ]),
 
       // Do not create separate chunks of the server bundle
       // https://webpack.github.io/docs/list-of-plugins.html#limitchunkcountplugin

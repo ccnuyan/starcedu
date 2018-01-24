@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
 
-import serverConfig from '../../../serverConfig';
+import serverConfig from '../../serverConfig';
 
 export const sign = (issuer, payload) => {
   const user = _.pick(payload, ['id', 'username', 'to']);

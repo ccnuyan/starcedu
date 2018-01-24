@@ -2,7 +2,7 @@ import '../../../../utils/testHelpers';
 import pgPool from '../../../../db/connector';
 import app from '../../../';
 
-describe('local user update password business', function () { // eslint-disable-line
+describe('local user update password', function () { // eslint-disable-line
   this.timeout(10000);
   beforeEach(async () => {
     await pgPool.query('delete from starcedu_auth.users');

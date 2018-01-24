@@ -1,8 +1,8 @@
 import api from './api/';
 import web from './web/';
 
-import session from './auth/sessionMiddleware';
-import userAUth from './auth/byPassUserAuth';
+import session from '../../utils/middlewares/sessionMiddleware';
+import userAUth from '../../utils/middlewares/byPassUserAuth';
 
 const session2Req = (req, res, next) => {
   Object.keys(req.session).forEach((k) => {

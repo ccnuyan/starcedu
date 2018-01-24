@@ -1,5 +1,5 @@
+import { sign } from '../../../utils/middlewares/tokenServices';
 import pgPool from '../../../db/connector';
-import { sign } from './tokenServices';
 import serverConfig from '../../../serverConfig';
 
 const authenticate = async ({ username, password, oauth_user_id }, { gen_token, target_tenant }) => {

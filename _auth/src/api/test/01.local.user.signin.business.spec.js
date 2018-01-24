@@ -1,13 +1,15 @@
+import serverConfig from '../../../../serverConfig';
 import '../../../../utils/testHelpers';
 import pgPool from '../../../../db/connector';
 import app from '../../../';
 
-describe('local user signin business', function () { // eslint-disable-line
+
+describe('local user signin', function () { // eslint-disable-line
   this.timeout(10000);
   beforeEach(async () => {
-    await pgPool.query('delete from starcedu_auth.users');
-    await pgPool.query('delete from starcedu_auth.logins');
-    await pgPool.query('delete from starcedu_auth.oauth2users');
+    await pgPool.query(`delete from ${serverConfig.auth_dbname}.users`);
+    await pgPool.query(`delete from ${serverConfig.auth_dbname}.logins`);
+    await pgPool.query(`delete from ${serverConfig.auth_dbname}.oauth2users`);
 
     this.user = {
       username: 'user@test.com',

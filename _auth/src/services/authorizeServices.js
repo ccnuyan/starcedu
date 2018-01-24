@@ -1,9 +1,9 @@
 import jsonwebtoken from 'jsonwebtoken';
 
+import { sign } from '../../../utils/middlewares/tokenServices';
 import serverConfig from '../../../serverConfig';
 import tenants from '../../../serverConfig/tenants';
 import pgPool from '../../../db/connector';
-import { sign } from './tokenServices';
 
 const generateCode = async ({ tenant, state, user_id }) => {
   return pgPool.query(`insert into ${serverConfig.auth_dbname}.authorization_codes (tenant, state,  user_id) values ($1, $2, $3) returning *`, [tenant, state, user_id]) // eslint-disable-line max-len

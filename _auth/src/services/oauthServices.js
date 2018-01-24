@@ -1,4 +1,4 @@
-import { sign } from './tokenServices';
+import { sign } from '../../../utils/middlewares/tokenServices';
 import serverConfig from '../../../serverConfig';
 import pgPool from '../../../db/connector';
 

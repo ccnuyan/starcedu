@@ -2,11 +2,16 @@
 build/*
 !build/readme.md
 
+server/*
+!server/readme.md
+
 */database/build/*
 !*/database/build/readme.md
 
 */src/build/*
 !*/src/build/readme.md
+
+
 
 ###############################################
 # Created by https://www.gitignore.io/api/git,node,linux,macos,windows,visualstudiocode

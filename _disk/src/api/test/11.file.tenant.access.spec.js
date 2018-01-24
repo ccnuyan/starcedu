@@ -3,7 +3,7 @@ import '../../../../utils/testHelpers';
 import serverConfig from '../../../../serverConfig';
 import app from '../../../';
 
-describe('file tenant access business', function () { // eslint-disable-line
+describe('file tenant access', function () { // eslint-disable-line
   this.timeout(10000);
   this.filename = 'filename';
 

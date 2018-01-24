@@ -6,18 +6,21 @@
   "author": "ccnuyan",
   "license": "ISC",
   "scripts": {
-    "start-auth": "babel-node ./_auth",
-    "start-disk": "babel-node ./_disk",
-    "start-dev": "npm-run-all -p wp-dev server-dev",
     "eslint": "node_modules/.bin/eslint --ignore-path .eslintignore ./**/*.js",
     "wp-dev": "cross-env NODE_ENV=development && webpack-dev-server --host 127.0.0.1",
     "wp-build": "cross-env NODE_ENV=production && webpack --config=webpack.build-config.js",
-    "server-dev": "nodemon --config nodemon/nodemon.server.json --delay 1000ms",
+    "# comment - test #": "test scripts:",
     "test": "mocha --opts ./mocha.opts ./_auth/**/*.spec.js ./_disk/**/*.spec.js",
-    "test-ci": "mocha --opts ./mocha.opts ./_auth/**/*.spec.js ./_disk/**/*.spec.js",
-    "build-install-test": "cross-env NODE_ENV=test && npm run db-build && npm run db-install && npm test",
+    "test-ci": "mocha --opts ./mocha.ci.opts ./_auth/**/*.spec.js ./_disk/**/*.spec.js",
     "start-tenant": "babel-node ./server/tenants/testTenant.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "# comment - dev #": "dev scripts:",
+    "start-auth-dev": "babel-node ./_auth",
+    "start-disk-dev": "babel-node ./_disk",
+    "server-dev": "nodemon --config nodemon.json --delay 1000ms",
+    "start-dev": "npm-run-all -p wp-dev server-dev",
+    "# comment - start #": "start scripts:",
+    "start": "node server"
   },
   "lint-staged": {
     "*.js": [
@@ -25,7 +28,7 @@
       "git add"
     ]
   },
-  "#comment# - browserslist": "for postcss autoprefix, which is in ./webpack/postcss.config.js",
+  "# comment # - browserslist": "for postcss autoprefix, which is in ./webpack/postcss.config.js",
   "dependencies": {
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -44,6 +47,7 @@
     "jsonwebtoken": "^7.4.1",
     "morgan": "^1.9.0",
     "pg": "^6.2.2",
+    "qiniu": "^7.1.1",
     "request": "^2.81.0"
   },
   "devDependencies": {
@@ -54,6 +58,7 @@
     "babel-polyfill": "^6.26.0",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "copy-webpack-plugin": "^4.3.1",
     "css-loader": "^0.28.7",
     "env-test": "^1.0.0",
     "eslint": "^3.19.0",
