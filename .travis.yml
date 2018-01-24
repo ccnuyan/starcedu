@@ -21,7 +21,7 @@ install:
 before_script:
 # - webpack
 script: 
-- npm run db-test
+- npm run test
 # - npm run wp-build
 
 after_success:
