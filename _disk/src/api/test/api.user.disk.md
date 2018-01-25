@@ -3,8 +3,8 @@
 BaseUrl:`/apps/disk/`  
 Endpoint: `api/:from/*`  
 Authentications:  
-[session](https://github.com/ccnuyan/starcedu_auth/blob/master/docs/session-authentication.md)  
-[usertoken](https://github.com/ccnuyan/starcedu_auth/blob/master/docs/usertoken-authentication.md)  
+[session](../../../../docs/auth/session-authentication.md)  
+[usertoken](../../../../docs/auth/usertoken-authentication.md)  
 
 from有两个值:
 1. `local` for local-tenant-web-app  
