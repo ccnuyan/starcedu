@@ -4,7 +4,7 @@ BaseUrl:`/apps/disk/`
 ## 1. 根据etag请求访问地址 
 
 Authentications:  
-[tenant](https://github.com/ccnuyan/starcedu_auth/blob/master/docs/tenant-authentication.md)  
+[tenant](../../../../docs/auth/tenant-authentication.md)  
 
 
 >FOR:  
