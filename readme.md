@@ -2,7 +2,6 @@
 
 [系统架构](/docs/arch/readme.md)
 
-
 系统支持三种租户应用情景
 
 1. local-tenant-client-app  
@@ -36,7 +35,3 @@
 1. [用户网盘 API](/_disk/src/api/test/api.user.disk.md)
 
 1. [租户网盘 API](/_disk/src/api/test/api.tenant.disk.md)
-
-## 部署
-
-1. [认证服务器部署](/docs/deployment.md)
